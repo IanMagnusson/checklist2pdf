@@ -10,6 +10,9 @@
 % Standard package includes
 \usepackage{times}
 \usepackage{latexsym}
+\usepackage{amssymb}
+
+\usepackage{enumitem}
 
 % For proper rendering and hyphenation of words containing Latin characters (including in bib files)
 \usepackage[T1]{fontenc}
@@ -25,57 +28,91 @@
 % and will typically save some space.
 \usepackage{microtype}
 
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\yes}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}}%
+\newcommand{\none}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+
+\usepackage[flushmargin,ragged]{footmisc}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
 
 \begin{document}
 \appendix
+\title{Blsh}
+\section*{Paper {{Submission ID}}: {{Title}}}
+\textbf{ACL 2023 Responsible NLP Checklist}
+\blfootnote{\textit{The Responsible NLP Checklist used at \href{https://2023.aclweb.org/}{ACL 2023} is adopted from \href{https://2022.naacl.org/blog/responsible-nlp-research-checklist/}{NAACL 2022}, 
+with the addition of a \href{https://2023.aclweb.org/blog/ACL-2023-policy/}{question on AI writing assistance}.}} 
+\hrule
 
-\section{For every submission}
-\subsection{Did you describe the limitations of your work?}
-{{Checklist_a1_limitations}}: {{Checklist_a1_limitations_text}}
-\subsection{Did you discuss any potential risks of your work?}
-{{Checklist_a2_risks}}: {{Checklist_a2_risks_text}}
-\subsection{Do the abstract and introduction summarize the paper’s main claims?}
-{{Checklist_a3_catch}}: {{Checklist_a3_catch_text}}
-\subsection{Have you used AI writing assistants when working on this paper?}
-{{Checklist_a4_writing}}: {{Checklist_a4_writing_text}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
 
-\section{Did you use or create scientific artifacts?}
-{{Checklist_b_artifacts}}: {{Checklist_b_artifacts_text}}
-\subsection{Did you cite the creators of artifacts you used?}
-{{Checklist_b1_cite}}: {{Checklist_b1_cite_text}}
-\subsection{Did you discuss the license or terms for use and / or distribution of any artifacts?}
-{{Checklist_b2_license}}: {{Checklist_b2_license_text}}
-\subsection{Did you discuss if your use of existing artifact(s) was consistent with their intended use, provided that it was specified? For the artifacts you create, do you specify intended use and whether that is compatible with the original access conditions (in particular, derivatives of data accessed for research purposes should not be used outside of research contexts)?}
-{{Checklist_b3_intended}}: {{Checklist_b3_intended_text}}
-\subsection{Did you discuss the steps taken to check whether the data that was collected / used contains any information that names or uniquely identifies individual people or offensive content, and the steps taken to protect / anonymize it?}
-{{Checklist_b4_pii}}: {{Checklist_b4_pii_text}}
-\subsection{Did you provide documentation of the artifacts, e.g., coverage of domains, languages, and linguistic phenomena, demographic groups represented, etc.?}
-{{Checklist_b5_documentation}}: {{Checklist_b5_documentation_text}}
-\subsection{Did you report relevant statistics like the number of examples, details of train / test / dev splits, etc. for the data that you used / created? Even for commonly-used benchmark datasets, include the number of examples in train / validation / test splits, as these provide necessary context for a reader to understand experimental results. For example, small differences in accuracy on large test sets may be significant, while on small test sets they may not be.}
-{{Checklist_b6_statistics}}: {{Checklist_b6_statistics_text}}
+\subsection{For every submission:}
+\begin{itemize}
+    \item[{{Checklist_a1_limitations}}] A1. Did you describe the limitations of your work?
+    \newline\textit{{{Checklist_a1_limitations_text}}}
+    \item[{{Checklist_a2_risks}}] A2. Did you discuss any potential risks of your work?
+    \newline\textit{{{Checklist_a2_risks_text}}}
+    \item[{{Checklist_a3_catch}}] A3. Do the abstract and introduction summarize the paper's main claims?
+    \newline\textit{{{Checklist_a3_catch_text}}}
+    \item[{{Checklist_a4_writing}}] A4. Have you used AI writing assistants when working on this paper?
+    \newline\textit{{{Checklist_a4_writing_text}}}
+\end{itemize}
 
-\section{Did you run computational experiments?}
-{{Checklist_c_computation}}: {{Checklist_c_computation_text}}
-\subsection{Did you report the number of parameters in the models used, the total computational budget (e.g., GPU hours), and computing infrastructure used?}
-{{Checklist_c1_parameters}}: {{Checklist_c1_parameters_text}}
-\subsection{Did you discuss the experimental setup, including hyperparameter search and best-found hyperparameter values?}
-{{Checklist_c2_hyperparams}}: {{Checklist_c2_hyperparams_text}}
-\subsection{Did you report descriptive statistics about your results (e.g., error bars around results, summary statistics from sets of experiments), and is it transparent whether you are reporting the max, mean, etc. or just a single run?}
-{{Checklist_c3_stats}}: {{Checklist_c3_stats_text}}
-\subsection{If you used existing packages (e.g., for preprocessing, for normalization, or for evaluation), did you report the implementation, model, and parameter settings used (e.g., NLTK, Spacy, ROUGE, etc.)?}
-{{Checklist_c4_packages}}: {{Checklist_c4_packages_text}}
+% {{Checklist_b_artifacts}}
+\subsection{{{Checklist_b_artifacts}}\ \ Did you use or create scientific artifacts?}
+\ \ \ \ \textit{{{Checklist_b_artifacts_text}}}
+\begin{itemize}
+    \item[{{Checklist_b1_cite}}] B1. Did you cite the creators of artifacts you used?
+    \newline\textit{{{Checklist_b1_cite_text}}}
+    \item[{{Checklist_b2_license}}] B2. Did you discuss the license or terms for use and / or distribution of any artifacts?
+    \newline\textit{{{Checklist_b2_license_text}}}
+    \item[{{Checklist_b3_intended_use}}] B3. Did you discuss if your use of existing artifact(s) was consistent with their intended use, provided that it was specified? For the artifacts you create, do you specify intended use and whether that is compatible with the original access conditions (in particular, derivatives of data accessed for research purposes should not be used outside of research contexts)?
+    \newline\textit{{{Checklist_b3_intended_use_text}}}
+    \item[{{Checklist_b4_pii}}] B4. Did you discuss the steps taken to check whether the data that was collected / used contains any information that names or uniquely identifies individual people or offensive content, and the steps taken to protect / anonymize it?
+    \newline\textit{{{Checklist_b4_pii_text}}}
+    \item[{{Checklist_b5_documentation}}] B5. Did you provide documentation of the artifacts, e.g., coverage of domains, languages, and linguistic phenomena, demographic groups represented, etc.?
+    \newline\textit{{{Checklist_b5_documentation_text}}}
+    \item[{{Checklist_b6_statistics}}] B6. Did you report relevant statistics like the number of examples, details of train / test / dev splits, etc. for the data that you used / created? Even for commonly-used benchmark datasets, include the number of examples in train / validation / test splits, as these provide necessary context for a reader to understand experimental results. For example, small differences in accuracy on large test sets may be significant, while on small test sets they may not be.
+    \newline\textit{{{Checklist_b6_statistics_text}}}
+\end{itemize}
 
-\section{Did you use human annotators (e.g., crowdworkers) or research with human participants?}
-{{Checklist_d_humans}}: {{Checklist_d_humans_text}}
-\subsection{Did you report the full text of instructions given to participants, including e.g., screenshots, disclaimers of any risks to participants or annotators, etc.?}
-{{Checklist_d1_instructions}}: {{Checklist_d1_instructions_text}}
-\subsection{Did you report information about how you recruited (e.g., crowdsourcing platform, students) and paid participants, and discuss if such payment is adequate given the participants’ demographic (e.g., country of residence)?}
-{{Checklist_d2_payment}}: {{Checklist_d2_payment_text}}
-\subsection{Did you discuss whether and how consent was obtained from people whose data you’re using/curating? For example, if you collected data via crowdsourcing, did your instructions to crowdworkers explain how the data would be used?}
-{{Checklist_d3_consent}}: {{Checklist_d3_consent_text}}
-\subsection{Was the data collection protocol approved (or determined exempt) by an ethics review board?}
-{{Checklist_d4_irb}}: {{Checklist_d4_irb_text}}
-\subsection{Did you report the basic demographic and geographic characteristics of the annotator population that is the source of the data?}
-{{Checklist_d5_demographics}}: {{Checklist_d5_demographics_text}}
+
+
+\subsection{{{Checklist_c_computation}}\ \ Did you run computational experiments?}
+\ \ \ \ \textit{{{Checklist_c_computation_text}}}
+\begin{itemize}
+    \item[{{Checklist_c1_parameters}}] C1. Did you report the number of parameters in the models used, the total computational budget (e.g., GPU hours), and computing infrastructure used?
+    \newline\textit{{{Checklist_c1_parameters_text}}}
+    \item[{{Checklist_c2_hyperparams}}] C2. Did you discuss the experimental setup, including hyperparameter search and best-found hyperparameter values?
+    \newline\textit{{{Checklist_c2_hyperparams_text}}}
+    \item[{{Checklist_c3_stats}}] C3. Did you report descriptive statistics about your results (e.g., error bars around results, summary statistics from sets of experiments), and is it transparent whether you are reporting the max, mean, etc. or just a single run?
+    \newline\textit{{{Checklist_c3_stats_text}}}
+    \item[{{Checklist_c4_packages}}] C4. If you used existing packages (e.g., for preprocessing, for normalization, or for evaluation), did you report the implementation, model, and parameter settings used (e.g., NLTK, Spacy, ROUGE, etc.)?
+    \newline\textit{{{Checklist_c4_packages_text}}}
+\end{itemize}
+
+\subsection{{{Checklist_d_humans}}\ \ Did you use human annotators (e.g., crowdworkers) or research with human participants?}
+\ \ \ \ \textit{{{Checklist_d_humans_text}}}
+\begin{itemize}
+    \item[{{Checklist_d1_instructions}}] D1. Did you report the full text of instructions given to participants, including e.g., screenshots, disclaimers of any risks to participants or annotators, etc.?
+    \newline\textit{{{Checklist_d1_instructions_text}}}
+    \item[{{Checklist_d2_payment}}] D2. Did you report information about how you recruited (e.g., crowdsourcing platform, students) and paid participants, and discuss if such payment is adequate given the participants’ demographic (e.g., country of residence)?
+    \newline\textit{{{Checklist_d2_payment_text}}}
+    \item[{{Checklist_d3_consent}}] D3. Did you discuss whether and how consent was obtained from people whose data you’re using/curating? For example, if you collected data via crowdsourcing, did your instructions to crowdworkers explain how the data would be used?
+    \newline\textit{{{Checklist_d3_consent_text}}}
+    \item[{{Checklist_d4_irb}}] D4. Was the data collection protocol approved (or determined exempt) by an ethics review board?
+    \newline\textit{{{Checklist_d4_irb_text}}}
+    \item[{{Checklist_d5_demographics}}] D5. Did you report the basic demographic and geographic characteristics of the annotator population that is the source of the data?
+    \newline\textit{{{Checklist_d5_demographics_text}}}
+\end{itemize}
 
 \end{document}
