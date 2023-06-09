@@ -63,7 +63,7 @@ def main(args):
             if row[col] == 'Yes':
                 row[col] = "\yes"
             if row[col] == 'No':
-                row[col] = "$\square$"
+                row[col] = "\\no"
             
             if is_text_col and na_store:
                 row[col] = "Not applicable. " + row[col]

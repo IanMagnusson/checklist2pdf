@@ -31,9 +31,12 @@
 \usepackage{pifont}
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
-\newcommand{\yes}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}}%
-\newcommand{\none}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+% \newcommand{\yes}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}}%
+% \newcommand{\no}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
 
+\newcommand{\yes}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\no}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
 
 \usepackage[flushmargin,ragged]{footmisc}
 
