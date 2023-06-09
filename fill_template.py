@@ -40,19 +40,6 @@ def main(args):
         id = row['Submission ID']
 
         # fill each response
-
-        # Some consideration for how to format things with respect to their use for later analysis. There are technically 4 possible responses to the non-text 
-        # part of the checklist: Yes, No, N/A, Select. 
-
-        # Emma, for the proposal to record the "Not Applicable" answers in the text box, how would we handle instances where the response is N/A and there 
-        # is also a comment in the text box? I think we can prepend "Not Applicable" to the text, as that would look natural. But it would also be great 
-        # if we use some kind of unique punctuation around the Not Applicable (e.g. "[] <Question>\nNot Applicable: <Some text from user comment>"), 
-        # so researchers can consistently extract the label from the PDF data if necessary.
-
-        # Select is also a tricky one, as it does really provide important information that the author didn't interact with the drop down menu 
-        # at all rather than affirmatively selecting the "No" option. So my preference would be that we record when this happens in some way. 
-        # Perhaps when a question is select, we could render this as "[] <Question>\nNo Response"
-
         na_store = False  # whether the previous non-text field was "N/A"; used to augment following text response.
         select_store = False  # whether the previous non-text field was "Select" (i.e. no response); used to augment following text response.
         for col in checklist_df.columns:
